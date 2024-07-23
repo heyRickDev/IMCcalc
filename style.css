@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-size: 62.5%;
+  /* variables */
+  --color-title: #0c3440;
+  --color-label: #00453a;
+  --color-input: #dce2e9;
+  --color-ip-placeholder: rgba(73, 80, 87, 0.5);
+  --color-ip-border: var(--color-ip-placeholder);
+  --color-error: #f03e3e;
+  --color-font-error: #fff;
+  --color-bg: #040924;
+  --color-bt: #02799d;
+  --color-bt-hover: #035c77;
+  --color-outline-input: var(--color-bt);
+  --color-outline-button: #024f66;
+}
+body {
+  background-color: var(--color-bg);
+}
+body,
+input,
+button {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+}
+.container {
+  display: grid;
+  height: 100vh;
+  place-content: center;
+}
+.card {
+  border-radius: 0.6rem;
+  padding: 4.8rem 6.4rem 6.4rem;
+  max-width: 42.8rem;
+  background-color: #fff;
+  margin-inline: auto;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+}
+.title {
+  color: var(--color-title);
+  font-size: 3.2rem;
+  line-height: 4rem;
+}
+form {
+  width: 30rem;
+}
+form h1 {
+  margin-bottom: 3.2rem;
+}
+form label {
+  color: var(--color-label);
+  display: block;
+  line-height: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+form input {
+  width: 100%;
+  background-color: var(--color-input);
+  border: 0.1rem solid var(--color-ip-border);
+  border-radius: 0.4rem;
+  padding: 1.6rem;
+}
+form input:focus {
+  outline: 0.2rem solid var(--color-outline-input);
+}
+input::placeholder {
+  color: var(--color-ip-placeholder);
+}
+.input-wrapper + .input-wrapper {
+  margin-top: 1.6rem;
+}
+form button {
+  background-color: var(--color-bt);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.4rem;
+  width: 100%;
+  margin-top: 3.2rem;
+  padding: 1.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  transition: background 0.4s;
+  cursor: pointer;
+}
+form button:hover {
+  background-color: var(--color-bt-hover);
+}
+form button:focus {
+  outline: 0.2rem solid var(--color-outline-button);
+}
+/* error message */
+.alert-error.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.alert-error {
+  position: absolute;
+  background: var(--color-error);
+  color: var(--color-font-error);
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  padding: 0.8rem 0;
+  font-weight: bold;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-30px);
+  transition: transform 0.5s;
+}
+/* modal */
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+  /* transform: scale(1); */
+  /* o scale acima está aplicando ao fundo preto tbm */
+}
+.modal-wrapper {
+  display: grid;
+  place-content: center;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  inset: 0;
+
+  opacity: 0;
+  visibility: hidden;
+}
+.modal {
+  position: relative;
+  transform: scale(0);
+  transition: transform 0.3s cubic-bezier(0.37, 1.88, 0.64, 1);
+}
+.modal.open {
+  transform: scale(1);
+}
+.modal button {
+  background: none;
+  border: none;
+
+  position: absolute;
+  top: 2.1rem;
+  right: 2.1rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.modal button:hover {
+  transform: scale(1.1);
+}
