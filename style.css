@@ -58,7 +58,8 @@ form label {
   line-height: 1.8rem;
   margin-bottom: 0.8rem;
 }
-form input {
+form input,
+form select {
   width: 100%;
   background-color: var(--color-input);
   border: 0.1rem solid var(--color-ip-border);
